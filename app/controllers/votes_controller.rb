@@ -1,0 +1,23 @@
+class VotesController < ApplicationController
+
+  def create
+    @vote = Vote.new(vote_params)
+  end
+
+  def index
+    @votes = Vote.all
+    render json: @votes
+  end
+
+  def upvote
+    @vote = Vote.find(params[:id])
+    @vote.votes += 1
+    @vote.save
+  end
+
+  private
+
+  def vote_params
+    params.require(:vote).permit(:description, :votes, :id)
+  end
+end

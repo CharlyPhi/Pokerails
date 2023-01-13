@@ -9,4 +9,5 @@ module CurrentUserConcern #Devise deals with that when used. Makes available @cu
     if session[:user_id]
       @current_user = User.find(session[:user_id])
     end
+  end
 end
