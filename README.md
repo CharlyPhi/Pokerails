@@ -1,2 +1,2 @@
 # Pokerails
-If you knew Pokereact, well this is V2.
+It's about time Pokereact gets a backend. Incoming
