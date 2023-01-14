@@ -1,10 +1,10 @@
 Vote.destroy_all
 
 puts 'Adding votes ! (Not Russia style)'
-vote1 = Vote.create!(description: 'A functionning contact form', votes: 0)
-vote2 = Vote.create!(description: 'Overall design', votes: 0)
-vote3 = Vote.create!(description: 'Map, for reasons', votes: 0)
-vote4 = Vote.create!(description: 'Customizable avatar', votes: 0)
+vote1 = Vote.create!(description: 'A functionning contact form', number: 0)
+vote2 = Vote.create!(description: 'Overall design', number: 0)
+vote3 = Vote.create!(description: 'Map, for reasons', number: 0)
+vote4 = Vote.create!(description: 'Customizable avatar', number: 0)
 
 # puts 'Creating Users, well at least I'll have those..... it counts !'
 # user0 = User.create!(username: '4ar0n', email: 'aaron@mail.com', password: '123456', avatar: 'cool-doge.png')

@@ -11,7 +11,7 @@ class VotesController < ApplicationController
 
   def upvote
     @vote = Vote.find(params[:id])
-    @vote.votes += 1
+    @vote.number += 1
     @vote.save
   end
 
