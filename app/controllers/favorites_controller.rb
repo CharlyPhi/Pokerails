@@ -4,10 +4,6 @@ class FavoritesController < ApplicationController
     render json: @favorite
   end
 
-  def show
-    @favorite = Favorite.find(params[:user_id])
-  end
-
   def create
     @favorite = Favorite.new(favorite_params)
     render json: {
