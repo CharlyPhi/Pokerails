@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
-
   def index
-    @favorite = Favorite.all
+    @favorite = Favorite.find_by(user_id: params[:user_id])
+    render json: @favorite
   end
 
   def show
@@ -10,15 +10,18 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = Favorite.new(favorite_params)
+    render json: {
+      favorite: true,
+      name: @favorite.name
+    }
+    @favorite.save
   end
 
   def destroy
     @favorite = Favorite.find_by(id: params[:id], user_id: params[:user_id])
-    @favorite &&
+    @favorite &
       @favorite.destroy
-    end
-end
-
+  end
 
   private
 

@@ -1,7 +1,7 @@
 Vote.destroy_all
 
 puts 'Adding votes ! (Not Russia style)'
-vote1 = Vote.create!(description: 'A functionning contact form', number: 0)
+vote1 = Vote.create!(description: 'functionning form', number: 0)
 vote2 = Vote.create!(description: 'Overall design', number: 0)
 vote3 = Vote.create!(description: 'Map, for reasons', number: 0)
 vote4 = Vote.create!(description: 'Customizable avatar', number: 0)

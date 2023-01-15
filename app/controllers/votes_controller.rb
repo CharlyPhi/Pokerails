@@ -5,7 +5,7 @@ class VotesController < ApplicationController
   end
 
   def index
-    @votes = Vote.all
+    @votes = Vote.all.order(created_at: :asc)
     render json: @votes
   end
 

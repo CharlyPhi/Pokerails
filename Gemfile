@@ -10,6 +10,8 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
+
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
