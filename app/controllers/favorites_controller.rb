@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def index
-    @favorite = Favorite.find_by(user_id: params[:user_id])
+    @favorite = Favorite.where(user_id: params[:user_id])
     render json: @favorite
   end
 
@@ -22,6 +22,6 @@ class FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorite).permit(:name, :height, :weight, :user_id)
+    params.require(:favorite).permit(:name, :user_id)
   end
 end
