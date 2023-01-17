@@ -16,6 +16,6 @@ puts"
         __          __          __          __
       <(o )___    <(o )___    <(o )___    <(o )___
        ( ._> /     ( ._> /     ( ._> /     ( ._> /
-        `---'       `---'       `---'       `---'
+        `---'       `---'       `---'       `---'....
 "
 puts ' The four ducks of luck grant you safe passage, dont linger, they could change their mind.'
