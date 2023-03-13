@@ -12,7 +12,7 @@ vote4 = Vote.create!(description: 'User avatar', number: 0)
 # user2 = User.create!(username: '4sh', email: 'TheVeryBest@mail.com', password: 'pikachu', avatar: 'coolest-duck.jpg')
 puts
 
-puts"
+puts "
         __          __          __          __
       <(o )___    <(o )___    <(o )___    <(o )___
        ( ._> /     ( ._> /     ( ._> /     ( ._> /

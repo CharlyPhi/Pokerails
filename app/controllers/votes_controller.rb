@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-
   def create
     @vote = Vote.new(vote_params)
   end
@@ -18,6 +17,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:description, :votes, :id)
+    params.require(:vote).permit(:description, :number, :id)
   end
 end
