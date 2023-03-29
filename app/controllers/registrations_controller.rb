@@ -6,15 +6,16 @@ class RegistrationsController < ApplicationController
       password: params['user']['password'],
       password_confirmation: params['user']['password_confirmation']
     )
-
-    if user
-      session[:user_id] = user.id
+    session[:user_id] = user.id
       render json: {
-        status: :created,
-        user: user
+      status: :created,
+      user: user
       }
-    else
-      render :new, status: :unprocessable_entity
+
+    rescue ActiveRecord::RecordInvalid => e
+      render json: {
+        status: :unprocessable_entity,
+        error: e.message
+      }
     end
-  end
 end
