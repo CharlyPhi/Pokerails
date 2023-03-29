@@ -14,13 +14,13 @@ RSpec.describe VotesController, type: :controller do
 
   describe 'Get #index' do
     it 'renders votes in JSON' do
-      vote1 = Vote.create(description: 'VOTE 1', number: 0)
-      vote2 = Vote.create(description: 'VOTE 2', number: 0)
-      vote3 = Vote.create(description: 'VOTE 3', number: 0)
+      voteA = Vote.create(description: 'VOTE 1', number: 1)
+      voteB = Vote.create(description: 'VOTE 2', number: 0)
+      voteC = Vote.create(description: 'VOTE 3', number: 0)
 
       get :index
       expect(response.status).to eq(200)
-      expect(response.content_type).to eq("application/json; charset=utf-8")
+      expect(response.content_type).to eq('application/json; charset=utf-8')
 
       parsed_response = JSON.parse(response.body)
       expect(parsed_response.length).to eq(3)
@@ -28,14 +28,17 @@ RSpec.describe VotesController, type: :controller do
     end
   end
 
-  describe "POST #upvote" do
-    it "increments the number attribute of a vote object and saves the changes" do
-      vote1 = Vote.create(description: 'Macron démission', number: 0)
-      patch :upvote, params: { id: vote1.id }
+  describe 'POST #upvote' do
+    it 'increments the number attribute of a vote object and saves the changes' do
+      voteD = Vote.create(description: 'Macron démission', number: 0)
+
+      patch :upvote, params: { id: voteD.id }
       expect(response.status).to eq(200)
 
-      vote1.reload
-      expect(vote1.number).to eq(1)
+      voteD.reload
+      # without .reload we dont get the updated value of voteD
+      expect(voteD.description).to eq('Macron démission')
+      expect(voteD.number).to eq(1)
     end
   end
 end
