@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe VotesController, type: :controller do
   before(:each) do
     Vote.delete_all
@@ -9,6 +11,7 @@ RSpec.describe VotesController, type: :controller do
       expect(vote.number).to eq(0)
     end
   end
+
   describe 'Get #index' do
     it 'renders votes in JSON' do
       vote1 = Vote.create(description: 'VOTE 1', number: 0)
@@ -24,15 +27,15 @@ RSpec.describe VotesController, type: :controller do
       expect((parsed_response[0])['description']).to eq('VOTE 1')
     end
   end
+
   describe "POST #upvote" do
-    vote = Vote.create(description: 'Macron démission', number: 0)
-
     it "increments the number attribute of a vote object and saves the changes" do
-    patch :upvote, params: { id: vote.id }
-    expect(response.status).to eq(200)
+      vote1 = Vote.create(description: 'Macron démission', number: 0)
+      patch :upvote, params: { id: vote1.id }
+      expect(response.status).to eq(200)
 
-    vote.reload
-    expect(vote.number).to eq(1)
+      vote1.reload
+      expect(vote1.number).to eq(1)
     end
   end
 end
