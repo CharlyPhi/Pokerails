@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get :logged_in, to: 'sessions#logged_in'
   patch '/votes/:id', to: 'votes#upvote'
   get '/votes', to: 'votes#index'
-  root to: 'votes#create'
+  
 end
