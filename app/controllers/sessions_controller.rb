@@ -8,15 +8,14 @@ class SessionsController < ApplicationController
       status: :created,
       logged_in: true,
       user: user
-      }
+    }
 
     rescue ActiveRecord::RecordInvalid => e
       render json: {
         status: :unprocessable_entity,
         error: e.message
-    }
+      }
     end
-  end
 
   def logged_in
     if @current_user
@@ -35,4 +34,5 @@ class SessionsController < ApplicationController
     reset_session
     render json: { status: 200, logged_out: true }
   end
+end
 end
