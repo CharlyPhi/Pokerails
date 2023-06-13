@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: pokerails_api_production
-  username: pokerails_api
-  password: <%= ENV["POKERAILS_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
