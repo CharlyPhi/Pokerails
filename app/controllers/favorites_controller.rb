@@ -6,19 +6,33 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = Favorite.new(favorite_params)
+
+    @favorite.save
     render json: {
       favorite: true,
       name: @favorite.name
     }
-    @favorite.save
-  end
+    rescue
+      ActiveRecord::RecordInvalid => e
+      render json: {
+        status: :unprocessable_entity,
+        error: e.message
+    }
+    end
 
   def destroy
     @favorite = Favorite.find_by(id: params[:id], user_id: params[:user_id])
     @favorite.destroy
+
+  rescue
+    ActiveRecord::RecordInvalid => e
+    render json: {
+      status: :unprocessable_entity,
+      error: e.message
+    }
   end
 
-  private
+    private
 
   def favorite_params
     params.require(:favorite).permit(:name, :user_id, :pokeId)

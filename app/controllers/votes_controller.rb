@@ -12,6 +12,7 @@ class VotesController < ApplicationController
     @vote = Vote.find(params[:id])
     @vote.number += 1
     @vote.save
+    render json: @vote, status: :ok
   end
 
   private
